@@ -1,0 +1,145 @@
+.cart_wrapper {
+  padding: 20px;
+}
+
+.cart_title {
+  font-weight: 300;
+  text-align: center;
+}
+
+.cart_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.cart_topButton {
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cart_topText {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.cart_bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart_info {
+  flex: 3;
+}
+
+.cart_product {
+  display: flex;
+  justify-content: space-between;
+  /* ${mobile({ flexDirection: "column" })}? */
+}
+
+.cart_productDetail {
+  flex: 2;
+  display: flex;
+}
+
+.cart_productImage {
+  width: 200px;
+}
+
+.cart_productSpecificDetail {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cart_productColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.cart_priceDetail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart_productAmountContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart_productAmount {
+  font-size: 24px;
+  margin: 5px;
+}
+
+.cart_productPrice {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.cart_horizontalRule {
+  background-color: #eee;
+  border: none;
+  height: 1px;
+}
+
+.cart_summary {
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+}
+
+.cart_summaryTitle {
+  font-weight: 200;
+}
+
+.cart_summaryItem {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart_checkoutButton {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 380px) {
+  .cart_wrapper {
+    padding: 10px;
+  }
+
+  .cart_topTexts {
+    display: none;
+  }
+
+  .cart_bottom {
+    flex-direction: column;
+  }
+
+  .cart_product {
+    flex-direction: column;
+  }
+
+  .cart_productAmount {
+    margin: 5px 15px;
+  }
+
+  .cart_summary {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,47 @@
+.categoriesItem_container {
+  flex: 1;
+  margin: 3px;
+  height: 70vh;
+  position: relative;
+}
+
+.categoriesItem_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoriesItem_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoriesItem_title {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.categoriesItem_button {
+  border: none;
+  padding: 10px;
+  background-color: white;
+  color: gray;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 380px) {
+  .categoriesItem_container {
+    height: 20vh;
+  }
+  .categoriesItem_title {
+    font-size: 1.5em;
+  }
+}
