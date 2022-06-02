@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Announcement from '../Components/Announcement'
 import Navbar from '../Components/Navbar'
 import './ProductList.css'
 import Newsletter from '../Components/Newsletter'
 import Products from '../Components/Products'
 import Footer from '../Components/Footer'
+import { useLocation } from 'react-router-dom'
 
 
 function ProductList() {
+    const location = useLocation();
+    const cat = location.pathname.split("/")[2];
+
+    const [filters, setFilters] = useState({});
+    const [sort, setSort] = useState("newest");
+
+    const handleFilters = (e) => {
+        const value = e.target.value;
+        setFilters({
+            ...filters,
+            [e.target.name]: value,
+        });
+    };
+
     return (
         <div>
             <Navbar />
@@ -17,7 +32,7 @@ function ProductList() {
                 <div className='productList_filter'>
                     <p className='productList_filterText'>
                         Filter Products
-                        <select className='productList_select'>
+                        <select className='productList_select' name="color" onChange={handleFilters}>
                             <option selected disabled>Color</option>
                             <option>White</option>
                             <option>Black</option>
@@ -26,8 +41,8 @@ function ProductList() {
                             <option>Yellow</option>
                             <option>Green</option>
                         </select>
-                        <select className='productList_select'>
-                            <option disabled selected>
+                        <select className='productList_select' name="size" onChange={handleFilters}>
+                            <option selected disabled>
                                 Size
                             </option>
                             <option>XS</option>
@@ -41,15 +56,15 @@ function ProductList() {
                 <div className='productList_filter'>
                     <p className='productList_filterText'>
                         Sort Products
-                        <select className='productList_select'>
-                            <option selected>Newest</option>
-                            <optio>Price (asc)</optio>
-                            <option>Price (desc)</option>
+                        <select className='productList_select' onChange={(e) => setSort(e.target.value)}>
+                            <option value="newest">Newest</option>
+                            <option value="asc">Price (asc)</option>
+                            <option value="desc">Price (desc)</option>
                         </select>
                     </p>
                 </div>
             </div>
-            <Products />
+            <Products cat={cat} filters={filters} sort={sort} />
             <Newsletter />
             <Footer />
         </div>

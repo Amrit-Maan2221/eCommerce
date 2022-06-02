@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const userRoute = require("./routes/users");
 const connectDatabase = require('./connection');
+const cors = require("cors");
 
 /**
  * Import the Routes
@@ -10,11 +10,20 @@ const connectDatabase = require('./connection');
  */
 const authRoute = require("./routes/auth");
 
+
+const productRoute = require("./routes/product");
+const cartRoute = require("./routes/cart");
+const orderRoute = require("./routes/order");
+const userRoute = require("./routes/users");
+
+
 //connecting to database
 connectDatabase.connectDatabase();
 
 //Using Middleware express.json() to recongnize incoming request as a JSON Object
 app.use(express.json());
+
+app.use(cors());
 
 /**
  * Use the Routes
@@ -22,6 +31,10 @@ app.use(express.json());
  * Part 1, 2 and 3 available in ./routes/auth
  */
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/products", productRoute);
+app.use("/api/carts", cartRoute);
+app.use("/api/orders", orderRoute);
 
 
 

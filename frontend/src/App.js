@@ -4,16 +4,22 @@ import ProductPage from "./Pages/ProductPage";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Cart from "./Pages/Cart";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  const user = true;
   return (
     <>
-      {/* <Home />
-      <ProductList />
-      <ProductPage />
-      <Register />
-      <Login /> */}
-      <Cart />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/products/:category" element={<ProductList />} />
+          <Route exact path="/product/:id" element={<ProductPage />} />
+          <Route exact path="/register" element={user ? <Home /> : <Register />} />
+          <Route exact path="/login" element={user ? <Home /> : <Login />} />
+          <Route exact path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
     </>
   );
 }
