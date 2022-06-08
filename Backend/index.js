@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const connectDatabase = require('./connection');
 const cors = require("cors");
+const path = require("path");
 
 /**
  * Import the Routes
@@ -50,3 +51,12 @@ app.use("/api/user", userRoute);
 app.listen(process.env.PORT || 5000, () => {
     console.log("Backend server is running!");
 });
+
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+});
+
+module.exports = app;

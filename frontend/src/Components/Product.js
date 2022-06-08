@@ -5,6 +5,8 @@ import {
     SearchOutlined,
     ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+
 
 function Product({ item }) {
     return (
@@ -13,7 +15,7 @@ function Product({ item }) {
             <img className='product_image' src={item.img} />
             <div className='product_info'>
                 <div className='product_icon'><ShoppingCartOutlined /></div>
-                <div className='product_icon'> <SearchOutlined /></div>
+                <div className='product_icon'> <Link to={`/product/${item.id}`}><SearchOutlined /></Link></div>
                 <div className='product_icon'>  <FavoriteBorderOutlined /></div>
             </div>
         </div>

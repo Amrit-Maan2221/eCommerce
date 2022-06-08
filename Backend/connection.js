@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 exports.connectDatabase = function () {
-    mongoose.connect('mongodb://localhost:27017/Storish-eCommerce', {
+    mongoose.connect('mongodb+srv://Amrit:5QPKLYMwwivnBqoT@storish.m41ouws.mongodb.net/?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -11,3 +11,4 @@ exports.connectDatabase = function () {
             console.log(`no connection`);
         });
 }
+

@@ -3,3 +3,5 @@ No Atlas setup..
 Can Add Email Validator....
 # Need to setup if there is user we go to Home page not login page
 # Add test data in products
+#in products.js remove popular product dummy data
+# Product Page getting one product not working api

@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import { Search, ShoppingCartOutlined } from "@material-ui/icons"
 import { Badge } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 
 
@@ -16,7 +17,7 @@ function Navbar() {
                 </div>
             </div>
             <div className='navbar_center'>
-                <h1>STORISH</h1>
+                <Link to={`/`} style={{ textDecoration: "none", color: "black" }}><h1>STORISH</h1></Link>
             </div>
             <div className='navbar_right'>
                 <div className='navbar_menuItems'>REGISTER</div>

@@ -27,7 +27,7 @@ function ProductList() {
         <div>
             <Navbar />
             <Announcement />
-            <h1 className='productList_title'>Garments</h1>
+            <h1 className='productList_title'>{cat.toUpperCase()}</h1>
             <div className='productList_filterContainer'>
                 <div className='productList_filter'>
                     <p className='productList_filterText'>

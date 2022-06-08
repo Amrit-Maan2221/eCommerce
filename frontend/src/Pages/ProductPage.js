@@ -1,5 +1,6 @@
 import { Add, Remove } from '@material-ui/icons'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Announcement from '../Components/Announcement'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
@@ -7,6 +8,28 @@ import Newsletter from '../Components/Newsletter'
 import './ProductPage.css'
 
 function ProductPage() {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
+
+    useEffect(() => {
+        const getProduct = () => {
+            fetch(`/products/find/${id}`).then(
+                response => response.json()).then(data => {
+                    console.log("One Products got:" + data); // Prints result from `response.json()` in getRequest4
+                    console.log(data);
+                    setProduct(data)
+                }).catch(
+                    error => console.log(error)
+                )
+        };
+        getProduct();
+    }, [id]);
+
+
     return (
         <div>
             <Navbar />
